@@ -114,20 +114,17 @@
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-process</artifactId>
-			<version>${gt.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-wfs</artifactId>
-			<version>${gt.version}</version>
 		</dependency>
 		
 		<!-- gCube geo-utils -->
 		<dependency>
 	  	  <groupId>org.gcube.externals</groupId>
 	      <artifactId>geo-utils-custom-geopeo</artifactId>
-	  	  <version>1.0.2-min</version>
 		</dependency>
 	
 		<!-- Geoserver -->
