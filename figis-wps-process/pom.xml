@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.fao.fi.figis.geoserver</groupId>
+	<artifactId>figis-wps-process</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+
+	<!-- ============================ -->
+	<!-- General Project Information -->
+	<!-- ============================ -->
+
+	<name>figis-wps-process</name>
+	<description>A Java library of WPS GeoTools processings for use in FI projects</description>
+	<url>https://github.com/openfigis/figis-wps-process</url>
+	<inceptionYear>2012</inceptionYear>
+
+	<issueManagement>
+		<url>https://github.com/openfigis/figis-wps-process/issues</url>
+	</issueManagement>
+
+	<organization>
+		<name>Food and Agriculture Organization of the UNs - Fishery and Aquaculture Department</name>
+		<url>http://www.fao.org/fishery/en</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>eblondel</id>
+			<name>Emmanuel Blondel</name>
+			<email>Emmanuel.Blondel@fao.org</email>
+			<organization>FAO</organization>
+			<roles>
+				<role>GIS consultant</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+
+	<!-- ======================== -->
+	<!-- Project specifications -->
+	<!-- ======================= -->
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.6</jdk.version>
+
+		<gt.version>8.2</gt.version>
+		<gs.version>2.2</gs.version>
+		<junit.version>3.8.1</junit.version>
+	</properties>
+
+	<!-- dependencyManagement -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Geotools -->
+			<dependency>
+				<groupId>org.geotools</groupId>
+				<artifactId>gt-process</artifactId>
+				<version>${gt.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.geotools</groupId>
+				<artifactId>gt-wfs</artifactId>
+				<version>${gt.version}</version>
+			</dependency>
+			
+			<!-- gCube Geo-utils-custom -->
+		    <dependency>
+		  	  <groupId>org.gcube.externals</groupId>
+		      <artifactId>geo-utils-custom-geopeo</artifactId>
+		  	  <version>1.0.2-min</version>
+			</dependency>
+
+			<!-- Geoserver -->
+			<dependency>
+				<groupId>org.geoserver.extension</groupId>
+				<artifactId>wps-core</artifactId>
+				<version>${gs.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.geoserver</groupId>
+				<artifactId>main</artifactId>
+				<version>${gs.version}</version>
+				<classifier>tests</classifier>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.mockrunner</groupId>
+				<artifactId>mockrunner</artifactId>
+				<version>0.3.1</version>
+				<scope>test</scope>
+			</dependency>
+			
+			<!-- Junit -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- dependencies -->
+	<dependencies>
+		<!-- GeoTools -->
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-process</artifactId>
+			<version>${gt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.geotools</groupId>
+			<artifactId>gt-wfs</artifactId>
+			<version>${gt.version}</version>
+		</dependency>
+		
+		<!-- gCube geo-utils -->
+		<dependency>
+	  	  <groupId>org.gcube.externals</groupId>
+	      <artifactId>geo-utils-custom-geopeo</artifactId>
+	  	  <version>1.0.2-min</version>
+		</dependency>
+	
+		<!-- Geoserver -->
+		<dependency>
+			<groupId>org.geoserver.extension</groupId>
+			<artifactId>wps-core</artifactId>
+		</dependency>
+		
+		<!-- Tests -->
+		<dependency>
+			<groupId>org.geoserver</groupId>
+			<artifactId>main</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.mockrunner</groupId>
+			<artifactId>mockrunner</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+  
+ 	 <!-- Build -->
+  	<build>
+		<plugins>
+			<!-- ============ -->
+  			<!--    Compile   -->
+  			<!-- ============ -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+        </plugins>
+	</build>
+	
+	<!-- Repositories -->
+	<repositories>
+		
+		<!-- Opengeo repository -->
+		<repository>
+			<id>opengeo</id>
+			<name>opengeo</name>
+			<url>http://repo.opengeo.org</url>
+		</repository>
+		
+		 <!-- gCube Externals repository (for csquare geo-utils) -->
+        <repository>
+			<id>gcube-externals</id>
+			<name>gCube Externals</name>
+			<url>http://maven.research-infrastructures.eu/nexus/content/repositories/gcube-externals</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		
+	</repositories>
+</project>
