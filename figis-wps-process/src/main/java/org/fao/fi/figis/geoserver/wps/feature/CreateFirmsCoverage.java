@@ -313,10 +313,10 @@ public class CreateFirmsCoverage implements FigisProcess{
 		 */
 		public void computeThematicCoverage(SimpleFeature feature){
 			
-			 //count values
-			 Integer mrCount = ((Integer) feature.getAttribute("mr_count")).intValue();
-			 Integer fCount = ((Integer) feature.getAttribute("f_count")).intValue(); 
-			 
+			//count values
+			 Integer mrCount = Integer.parseInt((String) feature.getAttribute("mr_count"));
+			 Integer fCount = Integer.parseInt((String) feature.getAttribute("f_count")); 
+
 			 //validation & publication status (should be Boolean)
 			 String mrValid = (String) feature.getAttribute("mr_valid");
 			 String fValid = (String) feature.getAttribute("f_valid");
@@ -324,11 +324,11 @@ public class CreateFirmsCoverage implements FigisProcess{
 			 String fPub = (String) feature.getAttribute("f_pub");
 			 
 			 //thematic count values
-			 Integer fish_res = ((Integer) feature.getAttribute("fish_res")).intValue();
-			 Integer fish_act = ((Integer) feature.getAttribute("fish_act")).intValue();
-			 Integer prod_sys = ((Integer) feature.getAttribute("prod_sys")).intValue();
-			 Integer man_unit = ((Integer) feature.getAttribute("man_unit")).intValue();
-			 Integer juris = ((Integer) feature.getAttribute("juris")).intValue();
+			 Integer fish_res = Integer.parseInt((String) feature.getAttribute("fish_res"));
+			 Integer fish_act = Integer.parseInt((String) feature.getAttribute("fish_act"));
+			 Integer prod_sys = Integer.parseInt((String) feature.getAttribute("prod_sys"));
+			 Integer man_unit = Integer.parseInt((String) feature.getAttribute("man_unit"));
+			 Integer juris = Integer.parseInt((String) feature.getAttribute("juris"));
 			 
 			 //Assessment
 			 if((mrCount > 0 && mrValid.equals("Y")) || (fCount > 0 && fValid.equals("Y") && fish_res > 0)){
