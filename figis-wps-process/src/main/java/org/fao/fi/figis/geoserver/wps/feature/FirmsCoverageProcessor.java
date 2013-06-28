@@ -32,6 +32,8 @@ import com.vividsolutions.jts.precision.EnhancedPrecisionOp;
  */
 public class FirmsCoverageProcessor {
 
+	private static String VALUES_SEPARATOR = ";"; //split by ";" ("," is reserved to comma-separated files)
+	
 	String geoserverUrl;
 	String layerPrefix;
 	SimpleFeatureType sourceSchema;
@@ -140,7 +142,7 @@ public class FirmsCoverageProcessor {
 			if(value!=null){//check if a (list of) values is found for the refGeoAtt
 				
 				value = value.replaceAll(" ", ""); //remove spaces
-				String[] values = value.split(","); //split by ","
+				String[] values = value.split(VALUES_SEPARATOR); 
 				
 				if(values.length == 1){
 					//build filter a unique value
