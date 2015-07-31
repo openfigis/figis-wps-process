@@ -5,8 +5,6 @@ package org.fao.fi.figis.geoserver.wps;
  * @author Emmanuel Blondel (FAO)
  *
  */
-
-
 public interface FigisProcess {
 
 

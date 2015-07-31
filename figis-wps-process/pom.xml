@@ -48,8 +48,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.6</jdk.version>
 
-		<gt.version>8.2</gt.version>
-		<gs.version>2.2</gs.version>
+		<gt.version>11-SNAPSHOT</gt.version>
+		<gs.version>2.5-SNAPSHOT</gs.version>
 		<junit.version>3.8.1</junit.version>
 	</properties>
 
@@ -79,13 +79,13 @@
 			<!-- Geoserver -->
 			<dependency>
 				<groupId>org.geoserver.extension</groupId>
-				<artifactId>wps-core</artifactId>
+				<artifactId>gs-wps-core</artifactId>
 				<version>${gs.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.geoserver</groupId>
-				<artifactId>main</artifactId>
+				<artifactId>gs-main</artifactId>
 				<version>${gs.version}</version>
 				<classifier>tests</classifier>
 				<scope>test</scope>
@@ -130,13 +130,13 @@
 		<!-- Geoserver -->
 		<dependency>
 			<groupId>org.geoserver.extension</groupId>
-			<artifactId>wps-core</artifactId>
+			<artifactId>gs-wps-core</artifactId>
 		</dependency>
 		
 		<!-- Tests -->
 		<dependency>
 			<groupId>org.geoserver</groupId>
-			<artifactId>main</artifactId>
+			<artifactId>gs-main</artifactId>
 			<classifier>tests</classifier>
 			<scope>test</scope>
 		</dependency>
@@ -174,13 +174,16 @@
 	
 	<!-- Repositories -->
 	<repositories>
-		
-		<!-- Opengeo repository -->
-		<repository>
-			<id>opengeo</id>
-			<name>opengeo</name>
-			<url>http://repo.opengeo.org</url>
-		</repository>
+
+		<!-- Boundlessgeo repository (for geotools snapshots) -->
+        <repository>
+          <id>boundless</id>
+          <name>Boundless Maven Repository</name>
+          <url>http://repo.boundlessgeo.com/main</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
 		
 		 <!-- gCube Externals repository (for csquare geo-utils) -->
         <repository>

@@ -16,8 +16,8 @@ import org.geotools.process.ProcessException;
 import org.geotools.process.factory.DescribeParameter;
 import org.geotools.process.factory.DescribeProcess;
 import org.geotools.process.factory.DescribeResult;
-import org.geotools.process.feature.gs.UniqueProcess;
 import org.geotools.process.gs.WrappingIterator;
+import org.geotools.process.vector.UniqueProcess;
 import org.geotools.referencing.crs.DefaultGeographicCRS;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
@@ -110,16 +110,10 @@ public class CreateFirmsCoverage implements FigisProcess{
 					sourceSchema, this.getLayersList());
 		}
 
-		
-		
-		@Override
         public Iterator<SimpleFeature> iterator() {
             return new WrappingIterator(features());
         }
 
-		
-		
-        @Override
         public void close(Iterator<SimpleFeature> close) {
             if (close instanceof WrappingIterator) {
                 ((WrappingIterator) close).close();

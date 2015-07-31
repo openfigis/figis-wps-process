@@ -317,7 +317,7 @@ public class ManageFisheryStatAreas implements FigisProcess{
 			}
 		}
 		
-		fb.set("GEOM", unionGeom); //add the geometry
+		fb.set("THE_GEOM", unionGeom); //add the geometry
 		SimpleFeature result = fb.buildFeature(areaCode);
 		fb.reset();
 		return result;

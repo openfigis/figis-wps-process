@@ -18,8 +18,8 @@ import org.geotools.process.ProcessException;
 import org.geotools.process.factory.DescribeParameter;
 import org.geotools.process.factory.DescribeProcess;
 import org.geotools.process.factory.DescribeResult;
-import org.geotools.process.feature.gs.ReprojectProcess;
 import org.geotools.process.gs.WrappingIterator;
+import org.geotools.process.vector.ReprojectProcess;
 import org.geotools.referencing.CRS;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
@@ -207,12 +207,10 @@ public class GenericIntersection implements FigisProcess{
             return new GenericIntersectionFeatureIterator(delegate.features(), delegate, features, schema, dataGeomName);
         }
 
-        @Override
         public Iterator<SimpleFeature> iterator() {
             return new WrappingIterator(features());
         }
 
-        @Override
         public void close(Iterator<SimpleFeature> close) {
             if (close instanceof WrappingIterator) {
                 ((WrappingIterator) close).close();
